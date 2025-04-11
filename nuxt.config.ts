@@ -2,9 +2,7 @@ import Components from "unplugin-vue-components/vite";
 import { NaiveUiResolver } from "unplugin-vue-components/resolvers";
 
 export default defineNuxtConfig({
-  modules: [
-    "nuxtjs-naive-ui", // Módulo para Naive UI
-  ],
+  modules: ["nuxtjs-naive-ui", "@nuxt/image"],
 
   css: [
     "@/assets/css/tailwind.css", // Tailwind CSS

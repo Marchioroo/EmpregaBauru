@@ -1,9 +1,12 @@
 <script lang="ts">
-import { OrganismsAppHome } from '#build/components';
+import { OrganismsAppHome, OrganismsAppSidebar } from '#build/components';
+import '@fontsource/montserrat/700.css'
 
 </script>
 
 <template>
-    <OrganismsAppSide />
-    <OrganismsAppHome />
+    <div class="font-[Montserrat]">
+        <OrganismsAppHome />
+        <OrganismsAppSidebar />
+    </div>
 </template>

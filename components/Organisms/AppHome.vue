@@ -1,153 +1,140 @@
 <script lang="ts" setup>
-import { Swiper, SwiperSlide } from 'swiper/vue';
-import { ref } from 'vue';
-import 'swiper/css';
-import 'swiper/css/effect-cards';
 
-// Import required modules
-import { EffectCards } from 'swiper/modules';
+const logo = ref('/images/logoAtual.png');
+const toOpenID = ref()
+const toOpen = ref(false)
 
-// Define Swiper modules
-const modules = ref([EffectCards]);
 
-// Referência para o contêiner rolável (manual)
-const scrollContainer = ref<HTMLDivElement | null>(null);
+const menu = computed(() => [
 
-// Função para rolar à esquerda
-const scrollLeft = () => {
-    if (scrollContainer.value) {
-        scrollContainer.value.scrollBy({ left: -200, behavior: 'smooth' });
+    {
+        id: 1,
+        name: 'Moedas',
+        title: 'Catálogo de moedas',
+        image: '',
+        text: 'Explore moedas que atravessam séculos de história desde a Antiguidade até o mundo contemporâneo. Este espaço foi criado para apresentar exemplares que revelam aspectos políticos, culturais e artísticos de diferentes épocas e sociedades, permitindo uma nova forma de observar a história por meio da numismática. ',
+        itens: ['Antiguidade', 'Idade Média', 'Idade Moderna', 'Idade Contemporânea']
+    },
+    {
+        id: 2,
+        name: 'Cédulas',
+        title: 'Catálogo de cédulas',
+        image: '',
+        text: 'Conheça cédulas que marcaram diferentes contextos sociais, políticos e econômicos ao longo da história. Este espaço propõe uma leitura crítica do papel do papel-moeda como suporte de símbolos, narrativas e disputas de poder, revelando como os Estados constroem identidades, legitimam governos e representam suas culturas por meio da imagem impressa. ',
+        itens: ['Idade Média', 'Idade Moderna', 'Idade Contemporânea']
+    },
+    {
+        id: 3,
+        name: 'Medalhas',
+        title: 'Catálogo de cédulas',
+        image: '',
+        text: 'Medalhas comemorativas e históricas permitem a análise de eventos, homenagens, campanhas e datas marcantes. A partir desses objetos, é possível compreender relações de poder, construções de identidade, estratégias de legitimação e usos públicos da memória em diferentes contextos históricos. ',
+        itens: ['Idade Média', 'Idade Moderna', 'Idade Contemporânea']
+    },
+
+]);
+
+const openInformations = (id: number) => {
+    if (toOpenID.value === id) {
+        toOpenID.value = null
+        return;
     }
-};
+    toOpenID.value = id;
 
-// Função para rolar à direita
-const scrollRight = () => {
-    if (scrollContainer.value) {
-        scrollContainer.value.scrollBy({ left: 200, behavior: 'smooth' });
-    }
-};
+}
 
-// Referência para o Swiper
-const swiperRef = ref(null);
-
-// Funções de navegação do Swiper
-const slideNext = () => {
-    if (swiperRef.value) {
-        swiperRef.value.swiper.slideNext();
-    }
-};
-
-const slidePrev = () => {
-    if (swiperRef.value) {
-        swiperRef.value.swiper.slidePrev();
-    }
-};
 </script>
 
 <template>
-    <div class="flex flex-col h-[600px] md:h-[500px] w-screen bg-white">
+    <div class=" w-full h-full flex items-center justify-center bg-[#fdf6ec] flex-col ">
+        <div class=" w-full md:w-3/4 h-full flex-col ">
+            <div class="w-full md:h-[150px] h-[120px]  ">
+                <NuxtImg :src="logo" class="md:w-40 md:h-40 w-28 h-28 !p-0 " />
+            </div>
 
-        <div
-            class="subtitle text-lg text-center md:text-4xl mt-16 px-1 md:px-4 flex flex-row text-[#00A868] font-semibold w-full items-center justify-center">
-            Aqui você encontra as melhores oportunidades de Bauru e região
-        </div>
+            <div class="w-full h-full md:mt-20 my-10 px-9 ">
+                <div class="flex flex-col gap-2 ">
+                    <span class="text-3xl md:h-[50px] mb-6 h-full font-bold">
+                        <p class="text-[#011640]  w-full  cursor-pointer hover:text-[#76849c] transition-all">
+                            NEPEN - Núcleo de
+                            Estudos
+                            e
+                            Pesquisa em
+                            Numismática</p>
+                    </span>
 
-        <div class="button flex items-center justify-center mt-10 md:mt-8">
-            <button class="bg-green-600 hover:bg-green-500 transition-all  text-white font-bold py-3 px-10 rounded-2xl">
-                Buscar vagas
-            </button>
-        </div>
+                    <div class="text-[#011640] h-full text-lg  md:max-w-[600px] w-full mb-10 ">
+                        Somos um grupo que desenvolve pesquisas e atividades acadêmicas científicas,
+                        caracterizado pela relação interdisciplinar entre História, Letras e Antropologia, com foco
+                        especial no estudo das diferentes expressões, hábitos sociais e fenômenos como o
+                        multiculturalismo e as transformações sociais e culturais contemporâneas. A partir de
+                        metodologias multidisciplinares dos estudos históricos, literários e culturais, buscamos
+                        possibilitar a leitura e análise dos fenômenos artísticos e antropológicos essenciais para a
+                        compreensão da história, língua, literatura, etnologia, etnografia e cultura de massa.
+                        Assim, estabelecemos um diálogo interdisciplinar na construção de referenciais
+                        epistemológicos e abordagens metodológicas voltadas para o estudo das Histórias e
+                        Culturas dos Povos Indígenas e de Matriz Africana no Brasil.
 
-        <div class="title flex justify-center items-center">
-            <span class=" text-center mt-6 font-semibold text-lg text-black"> Vagas mais procuradas</span>
-        </div>
-        <div class="card flex flex-row items-center  justify-center w-full relative">
-
-            <!-- Botão de Navegação Esquerda do Swiper -->
-            <button @click="slidePrev" class="absolute left-1/3 z-10 hidden md:block">
-                <AtomsArrowBlack class="w-6 h-6" direction="left" color="gray" />
-            </button>
-
-            <!-- Swiper -->
-            <swiper ref="swiperRef" :grabCursor="true" :effect="'creative'" :creativeEffect="{
-                prev: {
-                    shadow: true,
-                    translate: [0, 0, -400],
-                },
-                next: {
-                    translate: ['100%', 0, 0],
-                },
-            }" :modules="modules" class="mySwiper w-[100%] md:w-[30%]">
-                <!-- Slide 1 -->
-                <swiper-slide>
-                    <div class="px-4 py-3 mt-1 mb-5 max-w-[350px] md:max-w-[700px] rounded-2xl mx-auto">
-                        <n-card title="Mecânico Auxiliar" class="max">
-                            <template #header-extra>
-                                Mecânica e Manutenção
-                            </template>
-                            Lorem ipsum dolor sit amet consectetur adipisicing elit. Vel aspernatur nemo ipsum doloribus
-                            quisquam
-                            perspiciatis consequatur excepturi est! Eaque consectetur eius odit id illo nemo recusandae
-                            amet officiis
-                            tempore beatae.
-                            <template #footer>
-
-                            </template>
-                            <template #action>
-                                <div class="relative w-full px-3">
-                                    <!-- Botão de Navegação Manual -->
-                                    <div class="w-full flex gap-2">
-                                        <n-button size="tiny">Bauru</n-button>
-                                        <n-button size="tiny">Diurno</n-button>
-                                        <n-button size="tiny">6 x 1</n-button>
-                                        <n-button size="tiny">Presencial</n-button>
-                                    </div>
-
-                                </div>
-                            </template>
-                        </n-card>
                     </div>
-                </swiper-slide>
 
-                <swiper-slide>
-                    <div class="px-4 py-3 mt-1 max-w-[350px] md:max-w-[600px] rounded-2xl mx-auto">
-                        <n-card title="Mecânico Auxiliar" class="max">
-                            <template #header-extra>
-                                Mecânica e Manutenção
-                            </template>
-                            Lorem ipsum dolor sit amet consectetur adipisicing elit. Vel aspernatur nemo ipsum doloribus
-                            quisquam
-                            perspiciatis consequatur excepturi est! Eaque consectetur eius odit id illo nemo recusandae
-                            amet officiis
-                            tempore beatae.
-                            <template #footer>
+                </div>
+            </div>
 
-                            </template>
-                            <template #action>
-                                <div class="relative w-full px-3">
-                                    <!-- Botão de Navegação Manual -->
-                                    <div class="w-full flex gap-2">
-                                        <n-button size="tiny">Bauru</n-button>
-                                        <n-button size="tiny">Diurno</n-button>
-                                        <n-button size="tiny">6 x 1</n-button>
-                                        <n-button size="tiny">Presencial</n-button>
-                                    </div>
-
-                                </div>
-                            </template>
-                        </n-card>
-                    </div>
-                </swiper-slide>
-            </swiper>
-
-            <!-- Botão de Navegação Direita do Swiper -->
-            <button @click="slideNext" class="absolute right-1/3 z-10 hidden md:block">
-                <AtomsArrowBlack class="w-6 h-6" direction="right" color="gray" />
-            </button>
         </div>
-    </div>
+        <div class="w-full h-full md:mt-18  ">
+            <div v-for="list in menu" class="w-full ">
+                <p @click="openInformations(list.id)"
+                    class="text-6xl w-2/3 md:pl-64 font-semibold px-8 hover:text-[#76849c] transition-all cursor-pointer mb-10">
+                    {{ list.name }}</p>
 
-    <div class="side h-[120px] w-screen bg-[#008E5A] flex mt-6 md:mt-16 justify-center md:justify-start items-center">
-        <span class="text-white font-bold text-3xl md:ml-10"> Vagas disponíveis hoje</span>
+                <transition name="reveal-down">
+                    <div v-if="toOpenID === list.id"
+                        class=" flex items-center overflow-hidden h-auto flex-col md:px-10  justify-center bg-[#011640] ">
+
+
+                        <div class="w-3/4 text-[#fdf6ec] flex flex-col gap-5 pt-14">
+                            <span class="md:text-lg text-2xl break-words font-extrabold">
+                                {{ list.title }}
+                            </span>
+                            <span class="break-words mt-4">
+                                {{ list.text }}
+                            </span>
+                        </div>
+
+                        <div class="w-3/4 flex flex-col md:flex-row justify-between items-starts  my-10 md:py-4 ">
+                            <div v-for="item in list.itens" :key="item"
+                                class="text-[#C8913E] w-[250px] text-lg font-semibold cursor-pointer md:p-4 py-4 ">
+                                {{ item }}
+                            </div>
+                        </div>
+
+                    </div>
+                </transition>
+                <br>
+
+            </div>
+
+
+        </div>
+
     </div>
 </template>
+
+
+<style scoped>
+.reveal-down-enter-active,
+.reveal-down-leave-active {
+    transition: max-height 1s ease, opacity 1s ease;
+}
+
+.reveal-down-enter-from,
+.reveal-down-leave-to {
+    max-height: 0;
+    opacity: 0;
+}
+
+.reveal-down-enter-to,
+.reveal-down-leave-from {
+    max-height: 1000px;
+}
+</style>
