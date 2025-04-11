@@ -5,7 +5,8 @@ export default defineNuxtConfig({
   modules: ["nuxtjs-naive-ui", "@nuxt/image"],
 
   css: [
-    "@/assets/css/tailwind.css", // Tailwind CSS
+    "@/assets/css/tailwind.css",
+    "@fontsource/montserrat/700.css", // Tailwind CSS
   ],
 
   plugins: [
