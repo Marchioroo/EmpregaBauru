@@ -32,7 +32,7 @@ const logoNUPHIS = ref('/images/LOGONUPHIS.png');
                 <div class="flex w-full justify-center items-center">
                     <div class="w-full flex justify-center md:ml-16 items-center flex-row md:flex-row gap-4 md:gap-0">
                         <NuxtImg :src="logoNEPEN" class="max-w-[70px] md:max-w-[100px]" />
-                        <NuxtImg :src="logoNUPHIS" class="max-w-[150px] md:max-w-[250px]" />
+                        <NuxtImg :src="logoNUPHIS" class="max-w-[150px] md:max-w-[250px] hidden  lg:block" />
                     </div>
                 </div>
 

@@ -6,7 +6,11 @@ export default defineNuxtConfig({
 
   css: [
     "@/assets/css/tailwind.css",
-    "@fontsource/montserrat/700.css", // Tailwind CSS
+    "@fontsource/montserrat/700.css",
+    "@fontsource/inter/400.css",
+    "@fontsource/inter/500.css",
+    "@fontsource/inter/700.css",
+    "@fontsource/inter/900.css", // Tailwind CSS
   ],
 
   plugins: [
@@ -27,6 +31,7 @@ export default defineNuxtConfig({
       }),
     ],
   },
+  pages: true,
 
   compatibilityDate: "2025-01-13",
 });

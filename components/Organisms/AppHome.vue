@@ -42,6 +42,20 @@ const openInformations = (id: number) => {
     toOpenID.value = id;
 
 }
+const routesMap: Record<string, string> = {
+    Antiguidade: '/moedas/antiguidade',
+    'Idade Contemporânea': '/moedas/idade-conteporanea',
+    'Idade Média': '/moedas/idade-media',
+    'Idade Moderna': '/moedas/idade-moderna'
+
+};
+
+const redirectTo = (item: string) => {
+    const route = routesMap[item];
+    if (route) {
+        navigateTo(route);
+    }
+};
 
 </script>
 
@@ -103,7 +117,8 @@ const openInformations = (id: number) => {
 
                         <div class="w-3/4 flex flex-col md:flex-row justify-between items-starts  my-10 md:py-4 ">
                             <div v-for="item in list.itens" :key="item"
-                                class="text-[#C8913E] w-[250px] text-lg font-semibold cursor-pointer md:p-4 py-4 ">
+                                class="text-[#C8913E] w-[250px] text-lg font-semibold cursor-pointer md:p-4 py-4 "
+                                @click="redirectTo(item)">
                                 {{ item }}
                             </div>
                         </div>
