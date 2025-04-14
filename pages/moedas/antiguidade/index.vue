@@ -4,9 +4,8 @@ const informations = [
         id: 1,
         title: 'Tetradracma de Macrinus',
         subtitle: 'Arados, região da Fenícia (atualmente território da Síria), entreos anosde 217 e 218 d.C.',
-        anverso: 'images/anverso.png',
+
         textAnverso: 'Inscrição: ΑΥΤ Κ ΜΑ Ο CΕ ΜΑΚΡΙΝΟC; Transliteração: AYT K MA O CE MAKΡINOΣ; Tradução: "Imperador César Marco Opélio Severo Macrino" O busto de Macrino exibe uma barba espessa e cabelo crespo, coroado por uma laurea, símbolo de sua autoridade imperial. Ele veste um paludamentum, reforçando sua posição como líder militar e governante.',
-        reverso: 'images/reverso.png',
         textReverso: ' moeda apresenta uma águia de asas abertas, segurando uma coroa no bico, um elemento característico das emissões da província da Síria-Fenícia. A inscrição ΗΜΑX Ε ΥΑΤΟC Α, pode ser traduzida como "Tetrarquia da cidade sagrada e autônoma", reforçando o status especial da cidade emissora. ',
         title2: 'Personagem Histórico',
         text2: 'Macrino (Marcus Opellius Severus Macrinus) foi imperador romano por pouco tempo, de abril de 217 a junho de 218 d.C. Ele foi o primeiro a chegar ao trono sem ser de famíliasenatorial, vindo de uma origem mais simples na Mauritânia (atual Argélia ou Marrocos). Antes de ser imperador, era comandante da guarda pretoriana e pode ter participado da morte de Caracala, seu antecessor. No governo, tentou economizar dinheiro e fez um acordo de paz com os partas, o que irritou os soldados, acostumados com aumentos e saques. Isso levou à revolta que colocou Elagábalo no trono, apoiado por sua avó Júlia Mesa. Macrino foi derrotado em uma batalha, preso e morto em 218 d.C. ' +
@@ -18,7 +17,8 @@ const informations = [
 
     }
 ]
-
+const anverso = ref('images/anverso.png')
+const reverso = ref('images/reverso.png')
 
 </script>
 <template>
@@ -38,12 +38,12 @@ const informations = [
                     <div class="images flex flex-col items-center mt-20 ">
                         <div class="w-full flex flex-row items-center justify-around">
                             <div class="flex flex-col items-center">
-                                <NuxtImg :src="informations[0].anverso" class="md:w-40 md:h-40 w-28 h-28 !p-0 " />
+                                <NuxtImg :src="anverso" class="md:w-40 md:h-40 w-28 h-28 !p-0 " />
                                 <p class="text-xs text-[#C8913E] mr-2"> Anverso</p>
                             </div>
 
                             <div class="flex flex-col items-center">
-                                <NuxtImg :src="informations[0].reverso" class="md:w-40 md:h-40 w-32 h-32 !p-0 " />
+                                <NuxtImg :src="reverso" class="md:w-40 md:h-40 w-32 h-32 !p-0 " />
                                 <p class="text-xs text-[#C8913E] mb-3 md:mb-0"> Reverso</p>
                             </div>
                         </div>
