@@ -1,8 +1,8 @@
 <script lang="ts" setup>
 
-const logoUni = ref('/images/logo_unisagrado.png');
-const logoNEPEN = ref('/images/BRASAO_SEM_FUNDO_BRANCO.png');
-const logoNUPHIS = ref('/images/LOGONUPHIS.png');
+const logoUni = ref('images/logo_unisagrado.png');
+const logoNEPEN = ref('images/BRASAO_SEM_FUNDO_BRANCO.png');
+const logoNUPHIS = ref('images/LOGONUPHIS.png');
 
 </script>
 <template>

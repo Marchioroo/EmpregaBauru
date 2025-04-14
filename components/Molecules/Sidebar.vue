@@ -1,5 +1,4 @@
 <template>
-
     <div class=" w-full md:w-3/4 h-full flex-col">
         <div>
             <div class="w-full md:h-[150px] h-[120px]  ">
