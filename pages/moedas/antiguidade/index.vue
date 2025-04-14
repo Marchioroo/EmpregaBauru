@@ -17,8 +17,8 @@ const informations = [
 
     }
 ]
-const anverso = ref('images/anverso.png')
-const reverso = ref('images/reverso.png')
+const anverso = ref('/images/ANVERSO.png')
+const reverso = ref('/images/REVERSO.png')
 
 </script>
 <template>
