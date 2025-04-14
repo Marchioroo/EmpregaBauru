@@ -80,21 +80,25 @@ const reverso = ref('/images/REVERSO.png')
 
                     </div>
 
-                    <div class=" w-full h-full flex flex-col gap-2 mt-60 pt-50 md:mt-10">
+                    <div class=" w-full h-full flex flex-col gap-2 mt-60 pt-50 md:mt-10 ">
                         <span class="text-4xl font-extrabold mt-60 md:mt-20 ">{{ informations[0].title2 }}</span>
                         <span class=" text-base md:text-xl text-[#1a2b4d] mt-6">{{ informations[0].text2 }}
                         </span>
                     </div>
-                    <div>
-                        <div class=" w-full h-full flex flex-col gap-2 pt-20  ">
-                            <span class="text-4xl font-extrabold">{{ informations[0].title3 }}</span>
-                            <span class=" text-base md:text-xl text-[#1a2b4d] mt-6">{{ informations[0].text3 }}
-                            </span>
+                    <div class="mt-16">
+                        <div class=" w-full h-full flex flex-col gap-2  ">
+                            <div class="flex flex-col gap-2">
+                                <span class="text-4xl font-extrabold">{{ informations[0].title3 }}</span>
+                                <span
+                                    class=" text-lg  text-[#fdf6ec] bg-[#1a2b4d] flex flex-col gap-2 rounded-xl p-4 ">{{
+                                        informations[0].text3 }}
+                                </span>
+                            </div>
                         </div>
 
                     </div>
 
-                    <div class=" w-full h-full flex flex-col gap-2   pt-20   ">
+                    <div class=" w-full h-full flex flex-col gap-2   pt-16  ">
                         <span class="text-4xl font-extrabold">{{ informations[0].title4 }}</span>
                         <span class=" text-base md:text-xl text-[#1a2b4d] mt-6">{{ informations[0].text4 }}
                         </span>
