@@ -3,10 +3,10 @@ const informations = [
     {
         id: 1,
         title: 'Tetradracma de Macrinus',
-        subtitle: 'Arados, região da Fenícia (atualmente território da Síria), entr eos anos de 217 e 218 d.C.',
+        subtitle: 'Arados, região da Fenícia (atualmente território da Síria), entre os anos de 217 e 218 d.C.',
 
         textAnverso: 'Inscrição: ΑΥΤ Κ ΜΑ Ο CΕ ΜΑΚΡΙΝΟC; Transliteração: AYT K MA O CE MAKΡINOΣ; Tradução: "Imperador César Marco Opélio Severo Macrino" O busto de Macrino exibe uma barba espessa e cabelo crespo, coroado por uma laurea, símbolo de sua autoridade imperial. Ele veste um paludamentum, reforçando sua posição como líder militar e governante.',
-        textReverso: ' A cunhagem apresenta uma águia de asas abertas, segurando uma coroa no bico, um elemento característico das emissões da província da Síria-Fenícia.. A inscrição ΗΜΑX Ε ΥΑΤΟC Α, pode ser traduzida como "Tetrarquia da cidade sagrada e autônoma", reforçando o status especial da cidade emissora. ',
+        textReverso: ' A cunhagem apresenta uma águia de asas abertas, segurando uma coroa no bico, um elemento característico das emissões da província da Síria-Fenícia. A inscrição ΗΜΑX Ε ΥΑΤΟC Α, pode ser traduzida como "Tetrarquia da cidade sagrada e autônoma", reforçando o status especial da cidade emissora. ',
         title2: 'Personagem Histórico',
         text2: 'Macrino (Marcus Opellius Severus Macrinus) foi imperador romano por pouco tempo, de abril de 217 a junho de 218 d.C. Ele foi o primeiro a chegar ao trono sem ser de família senatorial, vindo de uma origem mais simples na Mauritânia (atual Argélia ou Marrocos). Antes de ser imperador, era comandante da guarda pretoriana e pode ter participado da morte de Caracala, seu antecessor. No governo, tentou economizar dinheiro e fez um acordo de paz com os partas, o que irritou os soldados, acostumados com aumentos e saques. Isso levou à revolta que colocou Elagábalo no trono, apoiado por sua avó Júlia Mesa. Macrino foi derrotado em uma batalha, preso e morto em 218 d.C. ' +
             ' No governo, tentou economizar dinheiro e fez um acordo de paz com os partas, o que irritou os soldados, acostumados com aumentos e saques. Isso levou à revolta que colocou Elagábalo no trono, apoiado por sua avó Júlia Mesa. Macrino foi derrotado em uma batalha, preso e morto em 218 d.C. ',
