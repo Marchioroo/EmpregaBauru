@@ -36,8 +36,9 @@ const logoNUPHIS = ref('/images/LOGONUPHIS_BRANCA.png');
 
                     </div>
                 </div>
-                <div class="w-full flex justify-end items-end p-4">
-                    <div class="w-full flex justify-end items-end text-xs text-[#C8913E] font-semibold">
+                <div class="w-full flex items-center justify-center md:justify-end md:items-end p-4">
+                    <div
+                        class="w-full flex md:justify-end md:items-end justify-center items-center text-xs text-[#C8913E] font-semibold">
                         Developed by •Marchioro |
                         UX/UI •Hugo Moreira
                     </div>
