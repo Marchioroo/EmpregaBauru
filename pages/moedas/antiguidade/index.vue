@@ -1,157 +1,73 @@
 <script lang="ts" setup>
-const informations = [
-    {
-        id: 1,
-        title: 'Tetradracma de Macrinus',
-        subtitle: 'Arados, região da Fenícia (atualmente território da Síria), entre os anos de 217 e 218 d.C.',
+import { useMoedaStore } from '~/stores/moedasStore'
+import { useRouter } from 'vue-router'
+import { ref, computed, watch } from 'vue'
+import { debounce } from 'lodash'
 
-        textAnverso: 'Inscrição: ΑΥΤ Κ ΜΑ Ο CΕ ΜΑΚΡΙΝΟC; Transliteração: AYT K MA O CE MAKΡINOΣ; Tradução: "Imperador César Marco Opélio Severo Macrino" O busto de Macrino exibe uma barba espessa e cabelo crespo, coroado por uma laurea, símbolo de sua autoridade imperial. Ele veste um paludamentum, reforçando sua posição como líder militar e governante.',
-        textReverso: ' A cunhagem apresenta uma águia de asas abertas, segurando uma coroa no bico, um elemento característico das emissões da província da Síria-Fenícia. A inscrição ΗΜΑX Ε ΥΑΤΟC Α, pode ser traduzida como "Tetrarquia da cidade sagrada e autônoma", reforçando o status especial da cidade emissora. ',
-        title2: 'Personagem Histórico',
-        text2: 'Macrino (Marcus Opellius Severus Macrinus) foi imperador romano por pouco tempo, de abril de 217 a junho de 218 d.C. Ele foi o primeiro a chegar ao trono sem ser de família senatorial, vindo de uma origem mais simples na Mauritânia (atual Argélia ou Marrocos). Antes de ser imperador, era comandante da guarda pretoriana e pode ter participado da morte de Caracala, seu antecessor. No governo, tentou economizar dinheiro e fez um acordo de paz com os partas, o que irritou os soldados, acostumados com aumentos e saques. Isso levou à revolta que colocou Elagábalo no trono, apoiado por sua avó Júlia Mesa. Macrino foi derrotado em uma batalha, preso e morto em 218 d.C. ' +
-            ' No governo, tentou economizar dinheiro e fez um acordo de paz com os partas, o que irritou os soldados, acostumados com aumentos e saques. Isso levou à revolta que colocou Elagábalo no trono, apoiado por sua avó Júlia Mesa. Macrino foi derrotado em uma batalha, preso e morto em 218 d.C. ',
-        title3: 'Padrão monetário',
-        text3: 'TETRADRACMA: Moeda de prata usada amplamente no mundo grego e nas províncias orientais do Império Romano. Seu nome vem do grego "tetra" (quatro) + "drachma", indicando que valia quatro dracmas, a unidade monetária padrão da Grécia Antiga.',
-        title4: 'Período político: ',
-        text4: 'O Império Romano (27 a.C. – 476 d.C. no Ocidente) foi o período da história de Roma em que o poder esteve centralizado nas mãos de um imperador. Teve início com Otaviano, que recebeu o título de Augusto em 27 a.C., após o fim da República. O regime imperial manteve algumas instituições republicanas, mas o imperador passou a deter autoridade máxima sobre o exército, a política e a administração. O Império viveu momentos de grande expansão territorial, estabilidade e prosperidade, como durante a Pax Romana, mas também enfrentou crises e divisões. No Ocidente, terminou em 476 d.C. com a deposição do último imperador; no Oriente, continuou como Império Bizantino até 1453. '
+const router = useRouter()
+const moedaStore = useMoedaStore()
+const listMoedas = moedaStore.GetMoedasAntiguidade()
+const isLoading = ref(false)
+const searchTerm = ref('')
 
+const performSearch = debounce(() => {
+    isLoading.value = false //
+}, 500)
+
+const filteredMoedas = computed(() => {
+    if (searchTerm.value) {
+        return listMoedas.filter((moeda) =>
+            moeda?.title?.toLowerCase().includes(searchTerm.value.toLowerCase())
+        )
+    } else {
+        return listMoedas
     }
-]
-const anverso = ref('/images/ANVERSO.png')
-const reverso = ref('/images/REVERSO.png')
+})
 
+watch(searchTerm, () => {
+    isLoading.value = true
+    performSearch()
+})
+
+const redirecTo = (id: number) => {
+    router.push({
+        name: 'moedas-antiguidade-id',
+        params: { id },
+    })
+}
 </script>
+
 <template>
     <div class="w-full h-full flex items-center justify-center bg-[#fdf6ec] flex-col">
         <MoleculesSidebar />
 
-        <div class="flex flex-row w-full justify-center md:mt-20 gap-6 px-4 md:px-8 pb-20">
-
-            <div class="md:w-3/5 px-8 mt-10 ">
-
-                <div class=" w-full h-full flex flex-col gap-2">
-                    <span class="text-4xl font-extrabold text-justify">{{ informations[0].title }}</span>
-                    <span class=" text-base md:text-xl text-[#76849c] text-justify">{{ informations[0].subtitle }}
-                    </span>
-
-
-                    <div class="images flex flex-col items-center mt-20 ">
-                        <div class="w-full flex md:flex-row items-center flex-col justify-around ">
-                            <div class="flex flex-col items-center">
-                                <NuxtImg :src="anverso" class="md:w-80 md:h-80 w-72 h-72 !p-0 ml-8 " />
-                            </div>
-
-                            <div class="flex flex-col items-center">
-                                <NuxtImg :src="reverso" class="md:w-96 md:h-96 w-80 h-80 !p-0 " />
-                            </div>
-                        </div>
-
-                        <!-- Setas alinhadas com o grid -->
-                        <div class=" grid-cols-2 w-full -mt-12  hidden md:grid">
-                            <div class="flex justify-center ">
-                                <div
-                                    class="w-0 h-0 border-l-[16px] border-r-[16px] border-b-[16px] border-l-transparent border-r-transparent border-b-[#1a2b4d]">
-                                </div>
-                            </div>
-
-                            <div class="flex justify-center">
-                                <div
-                                    class="w-0 h-0 border-l-[16px] border-r-[16px] border-b-[16px] border-l-transparent border-r-transparent border-b-[#1a2b4d]">
-                                </div>
-                            </div>
-                        </div>
-
-                        <!-- Grid com colunas -->
-                        <div
-                            class="w-full grid grid-cols-1 lg:grid-cols-2 -mt-2 h-[150px] gap-4 bg-[#fdf6ec]  rounded-2xl">
-                            <div
-                                class="flex flex-col text-[#fdf6ec] items-center justify-center shadow-2xl bg-[#1a2b4d] rounded-2xl p-6 text-sm text-justify">
-                                <span class="">Anverso<br><br></span>
-                                {{ informations[0].textAnverso }}
-                            </div>
-                            <div
-                                class="flex flex-col text-[#fdf6ec] items-center justify-center shadow-2xl bg-[#1a2b4d] rounded-2xl p-6 text-sm text-justify">
-                                <span class="">Reverso<br><br></span>
-                                {{ informations[0].textReverso }}
-                            </div>
-                        </div>
-
-
-                    </div>
-
-                    <div class=" w-full h-full flex flex-col gap-2 mt-60 pt-50 md:mt-10 ">
-                        <span class="text-4xl font-extrabold mt-60 md:mt-20 text-justify">{{ informations[0].title2
-                            }}</span>
-                        <span class=" text-base md:text-xl text-[#1a2b4d] mt-6 text-justify">{{ informations[0].text2 }}
-                        </span>
-                    </div>
-                    <div class="mt-16">
-                        <div class=" w-full h-full flex flex-col gap-2  ">
-                            <div class="flex flex-col gap-2">
-                                <span class="text-4xl font-extrabold text-justify">{{ informations[0].title3 }}</span>
-                                <span
-                                    class=" text-base text-[#fdf6ec] bg-[#1a2b4d] flex flex-col gap-2 rounded-xl p-4 text-justify">{{
-                                        informations[0].text3 }}
-                                </span>
-                            </div>
-                        </div>
-
-                    </div>
-
-                    <div class=" w-full h-full flex flex-col gap-2 pt-16 text-justify">
-                        <span class="text-4xl font-extrabold text-justify">{{ informations[0].title4 }}</span>
-                        <span class=" text-base md:text-xl text-[#1a2b4d] mt-6 text-justify">{{ informations[0].text4 }}
-                        </span>
-                    </div>
-
-
-
-                </div>
-
-
-
+        <div class="w-3/4 flex flex-col items-center justify-center p-4 ">
+            <div class="w-full flex items-center justify-center p-4 ">
+                <div class=" text-4xl font-semibold"> Antiguidade</div>
+            </div>
+            <div class=" w-full flex items-end justify-end ">
+                <AtomsSearchinput class="!w-[300px] " v-model="searchTerm" />
             </div>
 
-            <div class="hidden lg:flex w-[250px] mt-20 bg-[#E5E5E5] text-white rounded-2xl p-4 shadow-lg h-full">
-                <div>
-                    <span class="border-b-2 text-[#C8913E] font-semibold"> Observações</span>
-                    <div>
-                        <p class="mt-4 text-[#1a2b4d] font-semibold text-justify">
-                            Arados era uma importante cidade portuária fenícia que emitiu várias moedas provinciais
-                            para diferentes imperadores romanos.
-                        </p>
+            <div v-if="isLoading" class="w-full flex items-center justify-center py-20">
+                <AtomsSpinner />
+            </div>
 
-
-                        <div class="mt-6 ">
-                            <span class=" text-[#C8913E] font-semibold text-justify">Especificações da moeda:</span>
-                            <div class="text-[#1a2b4d] font-semibold mt-6 "> Diâmetro: 27 mm
-                                Espessura: 2 mm <br>
-                                Massa: 13,87g <br>
-                                Material: prata (AR – argentum)</div>
-
-                        </div>
-
-                        <div>
-                            <div class="mt-6 text-base text-[#C8913E] font-semibold"> Macrinus na cultura popular:
-                            </div>
-
-                            <div class="mt-6 text-[#1a2b4d] font-semibold text-justify">Gladiador 2 é a sequência do
-                                aclamado filme
-                                Gladiador (2000), dirigido por
-                                Ridley Scott.
-                                Lançado nos cinemas em 14 de novembro de 2024.
-                                A história se passa anos após os eventos do primeiro filme, acompanhando Lúcio (Paul
-                                Mescal), que, após testemunhar a morte de Máximo, enfrenta novos desafios ao ser
-                                forçado a lutar no Coliseu para sobreviver e restaurar a honra de Roma.
-                                O elenco conta com Paul Mescal como Lúcio, Pedro Pascal, Connie Nielsen reprisando seu
-                                papel como Lucila e Denzel Washington interpretando Macrinus.</div>
-                        </div>
-                    </div>
+            <div v-else-if="filteredMoedas.length > 0"
+                class="w-full h-auto grid md:grid-cols-4 grid-cols-2 items-center justify-center gap-6 md:px-4 py-20">
+                <div v-for="moeda in filteredMoedas"
+                    class="text-[#C8913E] text-xl font-semibold text-start px-1 break-words cursor-pointer hover:text-[#76849c] transition-all duration-300 ease-in-out">
+                    <p @click="redirecTo(Number(moeda.id))">{{ moeda.title }}</p>
                 </div>
-
+            </div>
+            <div v-else>
+                <div class="flex items-center justify-center w-full h-auto py-10">
+                    <p class="text-[#1a2b4d] text-xl w-full font-semibold text-center px-4 break-words ">
+                        Nenhum resultado encontrado
+                    </p>
+                </div>
             </div>
         </div>
     </div>
     <OrganismsAppSidebar />
-
 </template>
