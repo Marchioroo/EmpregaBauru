@@ -142,4 +142,4 @@ const image = 'https://images.vexels.com/media/users/3/264365/isolated/preview/f
 
     <OrganismsAppSidebar />
 
-</template>
+</template> 
