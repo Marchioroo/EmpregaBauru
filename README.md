@@ -1,6 +1,7 @@
 # Nepen 🪙
 
 Projeto em **Nuxt 3 + Pinia + Tailwind CSS** para explorar moedas da Antiguidade e da Idade Média. Interface amigável e conteúdo histórico rico.
+Acesse: nepen.vercel.app
 
 ## 🔍 Funcionalidades
 
