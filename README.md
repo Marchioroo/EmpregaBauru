@@ -1,76 +1,20 @@
-# Nuxt Minimal Starter
+# Nepen 🪙
 
-Look at the [Nuxt documentation](https://nuxt.com/docs/getting-started/introduction) to learn more.
+Projeto em **Nuxt 3 + Pinia + Tailwind CSS** para explorar moedas da Antiguidade e da Idade Média. Interface amigável e conteúdo histórico rico.
+Acesse: nepen.vercel.app
 
-## Setup
+## 🔍 Funcionalidades
 
-Make sure to install dependencies:
+- Busca dinâmica por moedas antigas
+- Página de detalhes com dados históricos
+- Layout responsivo
+- Loading com spinner customizado
+- Navegação via Vue Router (Nuxt routing)
+
+## 🚀 Como rodar localmente
 
 ```bash
-# npm
+git clone https://github.com/seu-usuario/nepen.git
+cd nepen
 npm install
-
-# pnpm
-pnpm install
-
-# yarn
-yarn install
-
-# bun
-bun install
-```
-
-## Development Server
-
-Start the development server on `http://localhost:3000`:
-
-```bash
-# npm
 npm run dev
-
-# pnpm
-pnpm dev
-
-# yarn
-yarn dev
-
-# bun
-bun run dev
-```
-
-## Production
-
-Build the application for production:
-
-```bash
-# npm
-npm run build
-
-# pnpm
-pnpm build
-
-# yarn
-yarn build
-
-# bun
-bun run build
-```
-
-Locally preview production build:
-
-```bash
-# npm
-npm run preview
-
-# pnpm
-pnpm preview
-
-# yarn
-yarn preview
-
-# bun
-bun run preview
-```
-
-Check out the [deployment documentation](https://nuxt.com/docs/getting-started/deployment) for more information.
-# EmpregaBauru
