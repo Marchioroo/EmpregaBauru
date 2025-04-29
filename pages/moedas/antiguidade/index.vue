@@ -3,6 +3,17 @@ import { useMoedaStore } from '~/stores/moedasStore'
 import { useRouter } from 'vue-router'
 import { ref, computed, watch } from 'vue'
 import { debounce } from 'lodash'
+import AOS from 'aos';
+import 'aos/dist/aos.css';
+
+onMounted(() => {
+    AOS.init({
+        duration: 1200, // Duração das animações
+        easing: 'ease', // Efeito de transição
+        once: true,     // A animação acontece apenas uma vez
+        offset: 100,    // Distância do topo para começar a animação
+    });
+});
 
 const router = useRouter()
 const moedaStore = useMoedaStore()
@@ -55,7 +66,8 @@ const redirecTo = (id: number) => {
 
             <div v-else-if="filteredMoedas.length > 0"
                 class="w-full h-auto grid md:grid-cols-4 grid-cols-2 items-center justify-center gap-6 md:px-4 py-20">
-                <div v-for="moeda in filteredMoedas"
+                <div v-for="moeda, index in filteredMoedas" :data-aos="'fade-right'" :data-aos-delay="index * 100"
+                    data-aos-duration="1500"
                     class="text-[#C8913E] text-xl font-semibold text-start px-1 break-words cursor-pointer hover:text-[#76849c] transition-all duration-300 ease-in-out">
                     <p @click="redirecTo(Number(moeda.id))">{{ moeda.title }}</p>
                 </div>

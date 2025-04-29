@@ -71,7 +71,7 @@ const image = 'https://images.vexels.com/media/users/3/264365/isolated/preview/f
 
                     <div class=" w-full h-full flex flex-col gap-2 mt-60 pt-50 md:mt-10 ">
                         <span class="text-4xl font-extrabold mt-60 md:mt-20 text-justify">{{ moeda?.title2
-                        }}</span>
+                            }}</span>
                         <span class=" text-base md:text-xl text-[#1a2b4d] mt-6 text-justify">{{ moeda?.text2 }}
                         </span>
                     </div>
@@ -106,7 +106,7 @@ const image = 'https://images.vexels.com/media/users/3/264365/isolated/preview/f
                 class="hidden lg:flex w-[250px] mt-20 bg-[#E5E5E5] text-white rounded-2xl p-4 shadow-lg h-full">
                 <div>
                     <span class="border-b-2 text-[#C8913E] font-semibold">{{ moeda?.informationMoedaType2[0]?.title
-                        }}</span>
+                    }}</span>
                     <div>
                         <p class="mt-4 text-[#1a2b4d] font-semibold text-justify">
                             {{ moeda?.informationMoedaType2[0]?.text
@@ -117,9 +117,9 @@ const image = 'https://images.vexels.com/media/users/3/264365/isolated/preview/f
                         <div class="mt-6 ">
                             <span class=" text-[#C8913E] font-semibold text-justify"> {{
                                 moeda?.informationMoedaType2[0]?.title2
-                                }}</span>
+                            }}</span>
                             <div class="text-[#1a2b4d] font-semibold mt-6 "> {{ moeda?.informationMoedaType2[0]?.text2
-                            }} </div>
+                                }} </div>
 
                         </div>
                     </div>
@@ -132,7 +132,7 @@ const image = 'https://images.vexels.com/media/users/3/264365/isolated/preview/f
 
                         <div class="mt-6 text-[#1a2b4d] font-semibold text-justify">{{
                             moeda?.informationMoedaType2[0]?.text3
-                        }}</div>
+                            }}</div>
                     </div>
                 </div>
             </div>
