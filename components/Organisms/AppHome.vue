@@ -91,7 +91,7 @@ const redirectTo = (category: string, item: string) => {
 
 <template>
     <div class=" w-full h-full flex items-center justify-center bg-[#fdf6ec] flex-col ">
-        <video autoplay muted loop id="video-background"
+        <video autoplay muted loop playsinline id="video-background"
             class="absolute top-0 left-0 w-full h-[145%] md:h-[95%] object-cover">
             <source src="/public/images/video-nepen.mp4" type="video/mp4">
             Seu navegador não suporta o formato de vídeo.
