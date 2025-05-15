@@ -53,11 +53,11 @@ const redirecTo = (id: number) => {
         <MoleculesSidebar />
 
         <div class="w-3/4 flex flex-col items-center justify-center p-4 ">
-            <div class="w-full flex items-center justify-center p-4 ">
-                <div class=" text-4xl font-semibold"> Idade média</div>
-            </div>
-            <div class=" w-full flex items-end justify-end ">
+            <div class=" w-full flex items-end justify-end  ">
                 <AtomsSearchinput class="!w-[300px] " v-model="searchTerm" />
+            </div>
+            <div class="w-full flex items-center justify-center p-4 ">
+                <div class=" text-4xl font-semibold"> Idade Média</div>
             </div>
 
             <div v-if="isLoading" class="w-full flex items-center justify-center py-20">

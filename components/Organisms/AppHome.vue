@@ -105,16 +105,16 @@ const redirectTo = (category: string, item: string) => {
             <div class="w-full h-full md:mt-24 my-10 px-9 ">
                 <div class="flex flex-col gap-2 ">
                     <span class="text-3xl md:h-[50px] mb-6 h-full font-bold">
-                        <p
-                            class="text-[#000]   text-4xl w-full  cursor-pointer hover:text-[#fff] transition-all text-justify">
+                        <p class="text-[#000]   text-4xl w-full  cursor-pointer hover:text-[#fff] transition-all y">
                             NEPEN - Núcleo de
-                            Estudos
-                            e
+                            Estudos e
+                            <br>
                             Pesquisa em
-                            Numismática</p>
+                            Numismática
+                        </p>
                     </span>
 
-                    <div class="text-[#000] h-full  font-semibold text-lg  md:max-w-[600px] w-full mb-10 text-justify">
+                    <div class="text-[#000] h-full  font-semibold text-lg  md:max-w-[600px] w-full my-10 text-justify">
                         Somos um grupo que desenvolve pesquisas e atividades acadêmicas científicas,
                         caracterizado pela relação interdisciplinar entre História, Letras e Antropologia, com foco
                         especial no estudo das diferentes expressões, hábitos sociais e fenômenos como o
